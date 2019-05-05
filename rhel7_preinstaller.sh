@@ -93,6 +93,9 @@ echo "~"  |tee -a $LOGFILE
 echo -e "${RED}REMOVE Package${NC}" |tee -a $LOGFILE
 rpm -qa | grep gnome-initial-setup | awk '{print "yum -y remove "$1}' | sh -x |tee -a $LOGFILE
 # Add Any remove Package 
+systemctl disable libvirtd
+systemctl mask libvirtd
+
 echo "~"  |tee -a $LOGFILE
 
 # Disable chronyd
