@@ -71,7 +71,7 @@ mount /dev/cdrom /mnt |tee -a $LOGFILE
 echo "Start Copy media" |tee -a $LOGFILE
 
 ### cp Command
-#cp -rpH /mnt /root/OSC/base
+cp -rpH /mnt /root/OSC/base
 echo "End Copy" |tee -a $LOGFILE
 umount /dev/cdrom
 echo "~" |tee -a $LOGFILE
