@@ -163,4 +163,3 @@ EOF'
 
 echo -e "${RED} * RHEL7 Preinstall Finish${NC}"  |tee -a $LOGFILE
 
-
