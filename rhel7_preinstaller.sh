@@ -3,12 +3,12 @@
 #
 #
 #   Make by. chhanz
-#   Update date. 20190505
+#   Update date. 20190508
 #
 #
 
 # Set value
-DATE=`date +%y%m%d_%k%M`
+DATE=`date +%y%m%d%k%M`
 RED='\033[0;31m'
 NC='\033[0m'
 LOGFILE=$(hostname)-preinstall-$DATE.log
@@ -139,7 +139,7 @@ BONDING_OPTS="mode=1 miimon=100"
 # Auto-FailBack-Disable-Option 
 #BONDING_OPTS="mode=1 miimon=100 primary=<master> primary_reselect=2"
 IPADDR=
-NETAMSK=
+NETMASK=
 GATEWAY=
 EOF'
 
