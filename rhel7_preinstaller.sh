@@ -171,6 +171,14 @@ systemctl stop libvirtd
 systemctl mask libvirtd
 yum -y remove libvirt-client
 EOF'
+
+bash -c 'cat << EOF > /root/OSC/template/meltdown_spectre_disable.sh
+#!/bin/bash
+# meltdown_spectre_disable
+grubby --update-kernel=ALL --args="spectre_v2=off nopti"
+grubby --info=ALL
+EOF'
+echo -e "Please Check MELTDOWN/SPECTRE DISABLE" |tee -a $LOGFILE
  
 ##############################
 ###  End of file
