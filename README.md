@@ -1,13 +1,13 @@
 # CentOS7/RHEL7 Preinstaller
-This role configures OS for use.
+This role configures OS.
 
 # Requirements
 This roles was tested only on `CentOS7` or `RHEL7`.
 
 # Role Variables
-* Variables File 
+* variable file 
 ```
-$ vi roles/ansible.rhel-preinstall/defaults/main.yaml
+$ cat roles/ansible.rhel-preinstall/defaults/main.yaml
 ```
 
 * configure timezone
@@ -15,12 +15,12 @@ $ vi roles/ansible.rhel-preinstall/defaults/main.yaml
 set_timezone: Asia/Seoul
 ```
 
-* configure disable 'firewalld'
+* configure disable `firewalld`
 ```
 unuse_firewalld: true
 ```
 
-* configure disable 'NetworkManager'
+* configure disable `NetworkManager`
 ```
 unuse_networkmanager: true
 ```
@@ -66,7 +66,7 @@ unuse_libvirtd: true
 install_ntp: true
 ```
 
-* choice ntp package ('ntp' or 'chrony')
+* choice ntp package (`ntp` or `chrony`)
 ```
 ntp_package_name: chrony
 ```
