@@ -1,3 +1,55 @@
 ---
- - name: test
-   shell: id
+## Default Function
+- name: configure hostname
+   hostname: 
+     name: "{{ set_hostname }}"
+     
+- name: set timezone to Asia/Tokyo
+  timezone:
+    name: "{{ set_timezone }}"
+
+- name : stop 'NetworkManager'
+  service:
+    name: NetworkManager
+    state: stopped
+    enabled: no
+  when: unuse_networkmanager|bool
+
+- name : stop 'firewalld'
+  service:
+    name: firewalld
+    state: stopped
+    enabled: no
+  when: unuse_firewalld|bool
+      
+- name: disable SELinux
+  selinux:
+    state: disabled
+  when: unuse_selinux|bool
+
+- name: disable function key 'ctrl-alt-del'
+  systemd:
+    name: ctrl-alt-del.target
+    masked: yes
+  when: unuse_functionkey|bool
+
+## Addition function
+- name: install local repository (request media)
+  include: install_localrepo.yaml
+  when: install_localrepo|bool
+
+- name: install graphical server environment(Server with GUI)
+  include: install_graphical.yaml
+  when: install_graphical|bool
+  
+- name: install gnome desktop environment(GNOME Desktop)
+  include: install_gnome.yaml
+  when: install_gnome|bool
+
+- name: install 'ntp' service
+  include: install_ntp.yaml
+  when: install_ntp|bool
+
+- name: create template script file
+  include: create_template.yaml
+  when: create_template_file|bool

@@ -1,3 +1,3 @@
-- hosts: all
+- hosts: node
   roles:
      - { role: ansible.rhel-preinstall }

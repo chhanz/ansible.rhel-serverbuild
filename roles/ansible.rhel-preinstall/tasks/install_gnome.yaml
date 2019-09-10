@@ -1,0 +1,12 @@
+---
+- name: install the 'Gnome desktop' environment group
+  yum:
+    name: "@^gnome-desktop-environment"
+    state: present
+    
+- name: disable 'libvirtd'
+    systemd:
+      name: libvirtd
+      enabled: no
+      masked: yes
+    when: unuse_libvirtd|bool

@@ -1,0 +1,21 @@
+---
+- name: Mount install DVD read-only
+  mount:
+    path: /mnt/
+    src: /dev/sr0
+    fstype: iso9660
+    opts: ro,noauto
+    state: present
+    
+- name: Create 'local repository' directory
+  file:
+    path: {{ location_repo }}/base
+    state: directory
+    
+- name: Copy 'media' to 'local repository'
+  copy:
+    src: /mnt
+    dest: {{ location_repo }}/base
+    remote_src: yes
+
+- name: umount 'media'

@@ -1,0 +1,14 @@
+---
+ - name: Create 'template' directory
+   file:
+     path: {{ location_repo }}/template
+     state: directory
+    
+- name: Copy 'template' script files
+  copy:
+    src:
+      - ifcfg-bond0-temp
+      - ifcfg-slave-temp
+      - meltdown_spectre_disable.sh
+      - virt-network-remove.sh
+    dest: {{ location_repo }}/template

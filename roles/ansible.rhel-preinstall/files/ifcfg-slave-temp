@@ -1,0 +1,7 @@
+TYPE=Ethernet
+BOOTPROTO=none
+NAME=slave1
+DEVICE=slave1
+ONBOOT=yes
+MASTER=bond0
+SLAVE=yes
