@@ -1,5 +1,0 @@
----
- - host: localhost
- - tasks:
-     - name: test
-       shell: id
