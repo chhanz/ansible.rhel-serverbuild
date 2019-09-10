@@ -1,0 +1,17 @@
+---
+- name: install the 'graphical server' environment group
+  yum:
+    name: "@^graphical-server-environment"
+    state: present
+    
+- name: disable 'libvirtd'
+  systemd:
+    name: libvirtd
+    enabled: no
+    masked: yes
+  when: unuse_libvirtd|bool
+
+- name: remove the 'gnome-initial-setup' package
+  package:
+    name: gnome-initial-setup
+    state: absent

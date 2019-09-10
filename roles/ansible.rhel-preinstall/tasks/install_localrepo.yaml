@@ -1,0 +1,32 @@
+---
+- name: Mount install DVD read-only
+  mount:
+    path: /mnt/dvd
+    src: /dev/cdrom
+    fstype: iso9660
+    opts: ro,noauto
+    state: mounted
+    
+- name: Create 'local repository' directory
+  file:
+    path: "{{ location_repo }}/base"
+    state: directory
+    
+- name: Copy 'media' to 'local repository'
+  copy:
+    src: /mnt/dvd/
+    dest: "{{ location_repo }}/base/"
+    remote_src: yes
+    directory_mode: yes 
+
+- name: umount 'media'
+  mount:
+    path: /mnt/dvd
+    state: absent
+
+- name: add local repository
+  yum_repository:
+    name: media
+    description: media
+    baseurl: "file://{{ location_repo }}/base/"
+    gpgcheck: no

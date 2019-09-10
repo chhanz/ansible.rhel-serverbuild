@@ -1,0 +1,19 @@
+---
+- name: install the 'Gnome desktop' environment group (if CentOS)
+  yum:
+    name: "@^gnome-desktop-environment"
+    state: present
+  when: ansible_distribution != 'RedHat'
+
+- name: install the 'Gnome desktop' environment group (if RedHat)
+  yum:
+    name: "@gnome-desktop"
+    state: present
+  when: ansible_distribution == 'RedHat'
+    
+- name: disable 'libvirtd'
+  systemd:
+    name: libvirtd
+    enabled: no
+    masked: yes
+  when: unuse_libvirtd|bool

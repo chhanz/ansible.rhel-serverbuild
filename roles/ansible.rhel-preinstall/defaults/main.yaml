@@ -1,0 +1,40 @@
+---
+## configure timezone
+set_timezone: Asia/Seoul
+
+## configure disable 'firewalld'
+unuse_firewalld: true
+
+## configure disable 'NetworkManager'
+unuse_networkmanager: true
+
+## configure disable selinux
+unuse_selinux: true
+
+## configure disable `ctl+alt+del`
+unuse_functionkey: true
+
+## configure local repository (request media)
+install_localrepo: true
+
+## configure local repository location 
+location_repo: /root/repo
+
+## Your choice environment, graphical server or gnome desktop.
+## configure install graphical server environment
+install_graphical: true
+
+## configure install gnome desktop environment
+install_gnome: false
+
+## choice disable libvirtd
+unuse_libvirtd: true
+
+## configure ntp service
+install_ntp: true
+
+## choice ntp package ('ntp' or 'chrony')
+ntp_package_name: chrony
+
+## create template script file
+create_template_file: true

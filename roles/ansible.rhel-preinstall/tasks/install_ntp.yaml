@@ -1,0 +1,11 @@
+---
+- name: install 'ntp' package
+  package:
+    name: 
+      - "{{ ntp_package_name }}"
+      
+- name: Start 'ntp' Service    
+  service:
+    name: "{{ ntp_package_name }}d"
+    enabled: yes
+    state: started

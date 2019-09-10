@@ -1,0 +1,11 @@
+TYPE=Bond
+BOOTPROTO=none
+NAME=bond0
+DEVICE=bond0
+ONBOOT=yes
+BONDING_OPTS="mode=1 miimon=100"
+# Auto-FailBack-Disable-Option
+#BONDING_OPTS="mode=1 miimon=100 primary=<master> primary_reselect=2"
+IPADDR=
+NETMASK=
+GATEWAY=
