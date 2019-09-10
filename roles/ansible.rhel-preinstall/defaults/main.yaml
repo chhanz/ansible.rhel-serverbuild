@@ -28,7 +28,7 @@ location_repo: /root/repo
 install_graphical: true
 
 ## configure install gnome desktop environment
-install_graphical: false
+install_gnome: false
 
 ## choice disable libvirtd
 unuse_libvirtd: true

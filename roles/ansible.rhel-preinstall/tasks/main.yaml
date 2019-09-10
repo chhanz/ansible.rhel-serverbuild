@@ -1,10 +1,10 @@
 ---
 ## Default Function
 - name: configure hostname
-   hostname: 
-     name: "{{ set_hostname }}"
+  hostname: 
+    name: "{{ set_hostname }}"
      
-- name: set timezone to Asia/Tokyo
+- name: set timezone
   timezone:
     name: "{{ set_timezone }}"
 

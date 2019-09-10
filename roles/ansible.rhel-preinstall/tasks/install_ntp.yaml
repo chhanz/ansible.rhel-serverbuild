@@ -6,6 +6,6 @@
       
 - name: Start 'ntp' Service    
   service:
-    name: "{{ ntp_package_name }}"
+    name: "{{ ntp_package_name }}d"
     enabled: yes
     state: started
