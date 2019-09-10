@@ -1,11 +1,98 @@
-# RHEL7 Preinstaller
+# CentOS7/RHEL7 Preinstaller
+This role configures OS for use.
 
-    - 초기 스크립트 작성 : chhanz   
-    - 표준화된 설치 환경을 만들기 위함.   
-    - 설치 시간 단축을 위함.   
+# Requirements
+This roles was tested only on `CentOS7` or `RHEL7`.
 
-# Change Log
+# Role Variables
+* Variables File 
+```
+$ vi roles/ansible.rhel-preinstall/defaults/main.yaml
+```
 
-    - v1 : 스크립트 작성 완료 및 QA 진행 (chhanz)   
-    - v2 : Hostname 설정 부분 및 network-script backup 기능 추가 (yjwang)   
+* configure timezone
+```
+set_timezone: Asia/Seoul
+```
 
+* configure disable 'firewalld'
+```
+unuse_firewalld: true
+```
+
+* configure disable 'NetworkManager'
+```
+unuse_networkmanager: true
+```
+
+* configure disable selinux
+```
+unuse_selinux: true
+```
+
+* configure disable `ctl+alt+del`
+```
+unuse_functionkey: true
+```
+
+* configure local repository (request media)
+```
+install_localrepo: true
+```
+
+* configure local repository location 
+```
+location_repo: /root/repo
+```
+
+* Your choice environment, graphical server or gnome desktop.
+* configure install graphical server environment
+```
+install_graphical: true
+```
+
+* configure install gnome desktop environment
+```
+install_gnome: false
+```
+
+* choice disable libvirtd
+```
+unuse_libvirtd: true
+```
+
+* configure ntp service
+```
+install_ntp: true
+```
+
+* choice ntp package ('ntp' or 'chrony')
+```
+ntp_package_name: chrony
+```
+
+* create template script file
+```
+create_template_file: true
+```
+
+# Example Playbook
+1. git clone.
+```
+$ git clone https://github.com/chhanz/rhel-preinstall.git
+```
+
+2. change variables.
+```
+$ vi roles/ansible.rhel-preinstall/defaults/main.yaml
+```
+
+3. change inventory file
+```
+$ vi inventory/hosts
+```
+
+4. run ansible playbook
+```
+$ ansible-playbook -i inventory/hosts rhel7_preinstaller.yaml
+```
