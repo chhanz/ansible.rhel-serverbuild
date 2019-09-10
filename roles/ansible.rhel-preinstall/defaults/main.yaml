@@ -1,7 +1,4 @@
 ---
-## configure hostname
-set_hostname: testnode.example.com
-
 ## configure timezone
 set_timezone: Asia/Seoul
 

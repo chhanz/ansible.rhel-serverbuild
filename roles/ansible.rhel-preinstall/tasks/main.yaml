@@ -2,8 +2,8 @@
 ## Default Function
 - name: configure hostname
   hostname: 
-    name: "{{ set_hostname }}"
-     
+    name: "{{ inventory_hostname }}"
+
 - name: set timezone
   timezone:
     name: "{{ set_timezone }}"
