@@ -76,6 +76,11 @@ ntp_package_name: chrony
 create_template_file: true
 ```
 
+* Auto reboot system
+```
+reboot_system: false
+```
+
 # Example Playbook
 1. git clone.
 ```

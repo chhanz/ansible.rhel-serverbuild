@@ -53,3 +53,7 @@
 - name: create template script file
   include: create_template.yaml
   when: create_template_file|bool
+
+- name: Reboot System (wait for server active)
+  include: reboot_system.yaml
+  when: reboot_system|bool

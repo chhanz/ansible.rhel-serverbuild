@@ -38,3 +38,6 @@ ntp_package_name: chrony
 
 ## create template script file
 create_template_file: true
+
+## Auto reboot system
+reboot_system: false

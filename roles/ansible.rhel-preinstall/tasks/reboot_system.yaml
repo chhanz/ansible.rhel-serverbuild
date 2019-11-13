@@ -1,0 +1,5 @@
+---
+ - name: Reboot System (wait for server active)
+   reboot:
+     reboot_timeout: 600
+     test_command: uptime
